@@ -1,10 +1,10 @@
 #!perl6
 use v6;
 
-use XML;
+use OSX;
 
 sub MAIN ($xml-file) {
-  my $ofx = from-xml-file($xml-file);
-  my $transfer-list = $ofx.lookfor(:TAG<BANKTRANLIST>);
+  my $ofx = OSX.load($xml-file);
+  my $transfer-list = $ofx.transfer-list;
   say $transfer-list.perl;
 }
